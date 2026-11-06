@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#000000"/>
+<meta name="description" content="俯視一群由藍色字元構成的鯨魚。讓牠們上浮，或緩緩沉入黑暗。"/>
+<title>深藍 · ASCII Whales</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14'/%3E%3Cpath d='M32 5C17 5 19 25 25 39L28 48L14 55L27 58L32 54L37 58L50 55L36 48L39 39C45 25 47 5 32 5Z' fill='%23498bff'/%3E%3C/svg%3E"/>
+<link rel="stylesheet" href="./styles.css"/><script src="./app.js" defer></script>
+</head>
+<body>
+<main id="ocean" data-mode="auto" data-paused="false" data-depth="2.6" data-coverage="0">
+<canvas id="scene" role="img" aria-label="純黑海面下，三條藍色 ASCII 鯨魚以俯視角巡游。厚背先從黑暗裡浮現，低位胸鰭和尾鰭隨後出現。點擊可以引導主鯨。"></canvas>
+<header class="masthead">
+<div class="identity"><h1>深藍</h1><span class="identity-divider">/</span><span>ASCII WHALES</span></div>
+<div class="scene-state"><span class="state-dot"></span><span id="state-label">自由巡游</span><button id="about-open" aria-label="關於深藍" type="button">?</button></div>
+</header>
+<footer class="footer">
+<p class="hint"><span class="hint-cross" aria-hidden="true">＋</span>點一下，引導小藍</p>
+<div class="controls" aria-label="鯨魚動畫控制">
+<div class="mode-switch" role="group" aria-label="浮沉模式">
+<button type="button" class="mode-button active" data-mode="auto" aria-pressed="true">自動</button>
+<button type="button" class="mode-button" data-mode="surface" aria-pressed="false"><span aria-hidden="true">↑</span> 上浮</button>
+<button type="button" class="mode-button" data-mode="dive" aria-pressed="false"><span aria-hidden="true">↓</span> 下潛</button>
+</div>
+<span class="divider"></span>
+<button id="pause-button" class="pause-button" aria-label="暫停動畫" aria-pressed="false" title="暫停 · 空白鍵" type="button"><svg id="pause-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10"/></svg><svg id="play-icon" viewBox="0 0 20 20" aria-hidden="true" hidden><path d="m7 4 9 6-9 6Z"/></svg></button>
+<span class="divider depth-divider"></span>
+<label class="depth-control" for="depth"><span>深度</span><input id="depth" type="range" min="0" max="100" step="1" value="8" aria-label="水下深度，零最淺，一百最深"/><output id="depth-value" for="depth">2.6 m</output></label>
+<span class="divider speed-divider"></span>
+<label class="speed-control" for="speed"><span>流速</span><input id="speed" type="range" min="0.5" max="1.5" step="0.1" value="1" aria-label="動畫速度"/><output id="speed-value" for="speed">1.0×</output></label>
+</div>
+<span class="keyboard-hint"><kbd>SPACE</kbd> 暫停</span>
+</footer>
+<dialog id="about-dialog" aria-labelledby="about-title">
+<button id="about-close" class="dialog-close" aria-label="關閉" type="button">×</button>
+<p class="eyebrow">A VIEW FROM ABOVE</p><h2 id="about-title">浮出藍，沉入黑。</h2>
+<p>從上方看一群鯨魚，讓牠們在字元之間轉彎。上浮時，厚背先接住光，接著是身體、胸鰭和尾葉；下潛時，再慢慢還給黑暗。</p>
+<p>拖動「深度」可以看清浮沉的每一刻。即使暫停，也能調整深度。</p>
+<p class="attribution">視覺靈感來自 <a href="https://www.daoho.dev/" target="_blank" rel="noreferrer">Dao Ho 的 ASCII 錦鯉</a>。鯨魚、體積模型與繪圖程式均為獨立創作，非 DeepSeek 官方作品。</p>
+<p class="shortcuts"><kbd>1</kbd> 自動　<kbd>2</kbd> 上浮　<kbd>3</kbd> 下潛　<kbd>SPACE</kbd> 暫停</p>
+</dialog>
+<noscript><p class="noscript">請啟用 JavaScript，讓小藍浮現。</p></noscript>
+</main>
+</body>
+</html>
